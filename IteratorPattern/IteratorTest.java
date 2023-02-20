@@ -21,5 +21,21 @@ public class IteratorTest {
         System.out.println("" + book.getName());
     }
 
+    System.out.println("=====================");
+    BookFactory bookFactory = new BookFactory();
+    Iterator it1 = bookFactory.create(bookShelf, 0);
+    Iterator it2 = bookFactory.create(bookShelf, 1);
+
+    while (it1.hasNext()) {
+        Book book = (Book)it1.next();
+        System.out.println("" + book.getName());
+    }
+
+    System.out.println("=====================");
+
+    while (it2.hasNext()) {
+        Book book = (Book)it2.next();
+        System.out.println("" + book.getName());
+    }
   }
 }
