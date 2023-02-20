@@ -24,6 +24,11 @@ public class BookShelf implements Aggregate {
   }
 
   @Override
+  public Iterator reverseIterator() {
+    return new BookReverseIterator(this);
+  }
+
+  @Override
   public int getLength() {
     return num;
   }
