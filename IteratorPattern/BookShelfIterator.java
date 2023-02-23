@@ -1,24 +1,25 @@
 package IteratorPattern;
 
-public class BookReverseIterator implements Iterator {
+public class BookShelfIterator implements Iterator {
+
   private BookShelf bookshelf;
   private int index;
 
-  public BookReverseIterator(BookShelf bookshelf) {
+  public BookShelfIterator(BookShelf bookshelf) {
     this.bookshelf = bookshelf;
-    this.index = bookshelf.getLength() - 1;
+    this.index = 0;
   }
 
   @Override
   public boolean hasNext() {
-    return (index >= 0);
+    return (index < bookshelf.getLength());
   }
 
   @Override
   public Object next() {
     Book book = bookshelf.getBook(index);
-    index--;
+    index++;
     return book;
   }
+  
 }
-
