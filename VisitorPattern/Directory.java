@@ -13,7 +13,7 @@ public class Directory extends Entry {
   
   @Override
   public void accept(Visitor v) {
-    // TODO Auto-generated method stub
+    v.visit(this);
   }
 
   @Override
