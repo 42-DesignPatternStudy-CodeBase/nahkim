@@ -1,0 +1,46 @@
+package CommandPattern;
+
+import java.util.*;
+
+public class RemoteControl {
+  
+  private Map<Integer, ArrayList<Command> > commandMap;
+  
+
+  public RemoteControl() {
+    commandMap = new HashMap<Integer, ArrayList<Command>>();
+  }
+  
+  
+  public void setCommand(int index, Command onCommand, Command offCommand) {
+    ArrayList<Command> commandList = new ArrayList<>();
+    commandList.add(onCommand);
+    commandList.add(offCommand);
+    commandMap.put(index, commandList);
+  }
+        
+    @Override
+    public String toString() {
+    // System.out.println(remoteControl);
+      return "";
+      //TODO: 나중에 합시다
+    }
+
+    public void onButtonWasPushed(int index) {
+      ArrayList<Command> commandSet = commandMap.get(index);
+      try {
+        commandSet.get(0).execute();
+      } catch(Exception e) {
+        System.out.println("잘못된 요청입니다.");
+      }
+    }
+
+    public void offButtonWasPushed(int index) {
+      ArrayList<Command> commands = commandMap.get(index);
+      try {
+        commands.get(1).execute();
+      } catch(Exception e) {
+        System.out.println("잘못된 요청입니다.");
+      }
+    }
+}
