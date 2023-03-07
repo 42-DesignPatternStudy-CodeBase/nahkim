@@ -1,22 +1,19 @@
 package AdapterPattern;
 
-public class PrintBannerInheritance implements Print {
+public class PrintBannerInheritance extends Banner implements Print {
   
-  // Todo
-  public PrintBannerInheritance(Banner bannerName) {
-
+  public PrintBannerInheritance(String str) {
+    super(str);
   }
 
   @Override
   public void printWeak() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'printWeak'");
+    super.showWithParen();
   }
 
   @Override
   public void printStrong() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'printStrong'");
+    super.showWithAster();
   }
   
 }
