@@ -1,21 +1,28 @@
 package VisitorPattern;
 
+import java.util.*;
+
 public class ListVisitor extends Visitor {
- // 파일이나 디렉토리 목록을 출력한다
+  public static final String LIGHT_CYAN_BOLD = "\033[1;96m";
+  public static final String RESET = "\033[0m";
+
+
   @Override
   public void visit(File file) {
-    System.out.println(file.getName() + " ");
-    System.out.println(file.getSize() + " ");
+    System.out.println(file);
   }
-
-// 디렉토리는 색깔을 다르게 
-//  TODO: 검색해보기
 
   @Override
   public void visit(Directory directory) {
+    System.out.println(LIGHT_CYAN_BOLD + directory + RESET);
+
+    Iterator<Entry> iterator = directory.iterator();
     
-    System.out.println(directory.getName());
-    System.out.println(directory.getSize());
+    while (iterator.hasNext()) {
+      Entry entry = iterator.next();
+      entry.accept(this);
+    }
+    System.out.println("");
+    
   }
-  
 }
