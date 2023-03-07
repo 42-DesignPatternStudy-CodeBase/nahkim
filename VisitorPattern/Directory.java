@@ -14,6 +14,9 @@ public class Directory extends Entry {
   @Override
   public void accept(Visitor v) {
     v.visit(this);
+    for (Entry child:children){
+        child.accept(v);
+    }
   }
 
   @Override

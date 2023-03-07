@@ -21,9 +21,20 @@ public class RemoteControl {
         
     @Override
     public String toString() {
-    // System.out.println(remoteControl);
-      return "";
-      //TODO: 나중에 합시다
+      StringBuilder manual = new StringBuilder("------메뉴얼------\n");
+      commandMap.forEach((key, commandList) -> {
+        
+        manual.append(key + ": " );
+        for (Command command :commandList) {
+          String str = command.toString();
+          String commandName = str.substring(str.indexOf(".") + 1, str.indexOf("Command@"));
+          
+          manual.append(commandName + " ");
+        }
+        manual.append("\n");
+      });
+      manual.append("----------------\n");
+      return manual.toString();
     }
 
     public void onButtonWasPushed(int index) {
