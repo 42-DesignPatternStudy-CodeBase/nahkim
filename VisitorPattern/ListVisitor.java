@@ -13,6 +13,7 @@ public class ListVisitor extends Visitor {
   }
 
   @Override
+  // 디렉토리를 방문했을 때 호출
   public void visit(Directory directory) {
     System.out.println(LIGHT_CYAN_BOLD + directory + RESET);
 
